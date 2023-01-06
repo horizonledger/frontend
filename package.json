@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Website admin chat system froendend responsive website in HTML, CSS, dan JavaScript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horizonledger/frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/horizonledger/frontend/issues"
+  },
+  "homepage": "https://github.com/horizonledger/frontend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
