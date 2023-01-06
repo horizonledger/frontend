@@ -1,2 +1,2 @@
-# adminhub
-Website ini merupakan hasil slicing dari Figma ke responsive website menggunakan HTML, CSS, dan JavaScript
+# horizonledger
+Website admin chat system froendend responsive website in HTML, CSS, dan JavaScript
