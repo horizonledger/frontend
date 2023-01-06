@@ -67,8 +67,12 @@ switchMode.addEventListener('change', function () {
 
 console.log("ready.. try WS connection");
 
-let socket = new WebSocket("ws://127.0.0.1:8000/ws");
+let endpoint = "ws://127.0.0.1:8000/ws";
+let socket = new WebSocket(endpoint);
 console.log("Attempting Connection...");
+
+
+document.getElementById("network").textContent = endpoint;
 
 socket.onopen = () => {
     console.log("Successfully Connected");
