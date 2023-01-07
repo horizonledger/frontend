@@ -302,7 +302,51 @@ body {
 }
 /* NAVBAR */
 
+/* CHAT */
 
+.card {
+	margin: 20px 0;
+}
+
+.register-box {
+	border: none;
+	border-radius: 40px;
+	padding: 8px 10px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.sent-box {
+	border: none;
+	border-radius: 40px;
+	padding: 5px 10px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input {
+	font-size: 20px;
+}
+
+.chat-btn {
+	background-color: var(--blue);
+	border: none;
+	padding: 8px 10px;
+	border-radius: 40px;
+	font-size: 14px;
+	color: var(--light);
+	cursor: pointer;
+}
+
+.chat-btn:hover {
+	background-color: var(--blue);
+	border: none;
+	padding: 8px 10px;
+	border-radius: 40px;
+	font-size: 14px;
+	color: var(--light);
+	cursor: pointer;
+	opacity: 0.8;
+	transition: 300ms;
+}
 
 
 

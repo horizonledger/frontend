@@ -138,8 +138,8 @@
 					</span>
 				</li>
 			</ul>
-			<div>
-				 <div class="col-12 col-sm-6 col-lg-4">
+
+			<div>					
                 <div class="card chat-box" id="mychatbox">
                   <div class="card-header">
                     <h4>Chat</h4>
@@ -147,24 +147,36 @@
                   <div class="card-body chat-content">
                   </div>
                   <div class="card-footer chat-form">
-                    
-					<input id="input" type="text" />
-					<button id="btn">Send</button>
-					<pre id="log"></pre>
 
-					
+									<input class="register-box" type="text" id="registerInput" placeholder="Register your name here">
+									<button class="chat-btn" id="registerButton">Register Name</button>
 
-					<br><br>
-					<input type="text" id="registerInput">
-					<button id="registerButton">RegisterName</button>
+									<pre id="log"></pre>
+
+									<br><br>
+
+									<input class="sent-box" id="input" type="text" placeholder="Type a message"/>
+									<button class="chat-btn" id="btn">Send</button>
                   </div>
+
+									<div class="container">
+  
+										<div class="demo-flex-spacer"></div>
+									
+										<div class="webflow-style-input">
+											<input class="" type="email" placeholder="What's your email?"></input>
+											<button type="submit"><i class="icon ion-android-arrow-forward"></i></button>
+										</div>
+									
+										<div class="demo-flex-spacer"></div>
+									</div>
 
 				  <br><br><br>
 				  <div>network:
 					<pre id="network"></pre>
 					</div>
-                </div>
-              </div>
+          </div>
+
 			</div>
 
 			
