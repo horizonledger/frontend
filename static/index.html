@@ -9,12 +9,12 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
-	<title>Horizon Ledger</title>
+	<title><%= it.title %></title>
 </head>
 <body>
+      
 
-
-	<!-- SIDEBAR -->
+<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bx-radio-circle'></i>
@@ -48,6 +48,7 @@
 				</a>-->
 			</li>
 		</ul>
+		
 		<ul class="side-menu">
 			<li>
 				<a href="#">
@@ -55,19 +56,17 @@
 					<span class="text">Settings</span>
 				</a>
 			</li>
-			<li>
+			<!--<li>
 				<a href="#" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
-			</li>
+			</li>-->
 		</ul>
 	</section>
 	<!-- SIDEBAR -->
 
-
-
-	<!-- CONTENT -->
+<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
@@ -119,8 +118,8 @@
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>Username</h3>
-						<p id="username">@horizonledger</p>
+						<h3 id="username">@horizonledger</h3>
+						<p id="">Username</p>
 					</span>
 				</li>
 				<li>
@@ -138,33 +137,40 @@
 					</span>
 				</li>
 			</ul>
-			<div>
-				 <div class="col-12 col-sm-6 col-lg-4">
+
+			<div>					
                 <div class="card chat-box" id="mychatbox">
                   <div class="card-header">
-                    <h4>Chat</h4>
+                    
                   </div>
                   <div class="card-body chat-content">
                   </div>
                   <div class="card-footer chat-form">
-                    
-					<input id="input" type="text" />
-					<button id="btn">Send</button>
-					<pre id="log"></pre>
 
-					
+									<div class="chat-wrapper-register">
+										<input class="register-box" type="text" id="registerInput" placeholder="Register your name here">
+										<button class="chat-btn" id="registerButton">Register Name</button>
+									</div>
+									<div class="chat-wrapper">
+										<div class="header-chat">Horizon Chat</div>
+										<pre id="chatlog"></pre>
 
-					<br><br>
-					<input type="text" id="registerInput">
-					<button id="registerButton">RegisterName</button>
-                  </div>
+										<div class="type-button">
+										<input class="sent-box" id="input" type="text" autocomplete="off" placeholder="Type something"/>
+										<button type="submit" class="chat-btn" id="sendchat_button">Send</button>
+										</div>
+										</div>
+									</div>
 
+				  <h2>info log</h2>
+				  <pre id="otherlog"></pre>
 				  <br><br><br>
+
 				  <div>network:
 					<pre id="network"></pre>
 					</div>
-                </div>
-              </div>
+          </div>
+
 			</div>
 
 			
@@ -173,8 +179,14 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
+	  
 
-	<script src="./script.js"></script>
+
+<script src="./script.js"></script>
+
+
+
+    
 </body>
 </html>
+
