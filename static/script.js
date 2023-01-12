@@ -1,14 +1,4 @@
-let state = {};
-
 console.log("ready");
-
-const REPSTATE = "REPSTATE";
-const REQSTATE = "REQSTATE";
-
-//let endpoint = "wss://snode.benjyz.repl.co/ws";
-//let endpoint = "ws://127.0.0.1:8000/ws";
-let endpoint = "wss://snode.benjyz.repl.co/ws";
-
 
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
@@ -52,13 +42,17 @@ const searchForm = document.querySelector('#content nav form');
 // if(window.innerWidth < 768) {
 // 	sidebar.classList.add('hide');
 // } else if(window.innerWidth > 576) {
+// 	searchButtonIcon.classList.replace('bx-x', 'bx-search');
+// 	searchForm.classList.remove('show');
 // }
 
 
-// window.addEventListener('resize', function () {
-// 	if(this.innerWidth > 576) {
-// 	}
-// })
+window.addEventListener('resize', function () {
+	if(this.innerWidth > 576) {
+		searchButtonIcon.classList.replace('bx-x', 'bx-search');
+		searchForm.classList.remove('show');
+	}
+})
 
 
 const switchMode = document.getElementById('switch-mode');
@@ -71,20 +65,18 @@ switchMode.addEventListener('change', function () {
 	}
 })
 
-console.log("ready.. try WS connection " + endpoint);
+console.log("ready.. try WS connection");
 
+let endpoint = "ws://127.0.0.1:8000/ws";
 let socket = new WebSocket(endpoint);
+console.log("Attempting Connection...");
+
 
 document.getElementById("network").textContent = endpoint;
 
-function socketSendMsg(msg) {
-    socket.send(JSON.stringify({type: "Msg", value: msg}));
-}
-
 socket.onopen = () => {
     console.log("Successfully Connected");
-    socketSendMsg({type: "HNDCLIENT", value: ""});
-    //socketSendMsg({type: "REQSTATE", value: ""});
+    socket.send("handshake")
 };
 
 socket.onclose = event => {
@@ -92,59 +84,26 @@ socket.onclose = event => {
     socket.send("Client Closed!")
 };
 
-function appendHistory(msgvalue) {
-    //let hist = msgvalue;
-    let hist = JSON.parse(msgvalue);
-    //for (let i = 0; i < hist.length; i++) {
-    for (let i = 0; i < 100; i++) {
-        console.log(">>>>>> " + hist[i].type);
-        //let smsg = msg.type + " " + hist[i].value;
-        if (hist[i].type == "chat"){
-            document.getElementById("chatlog").textContent += "\n" + hist[i].value;
-        } else {
-
-        }
-    }
-}
-
 socket.onmessage = function (e) {
     console.log("Received: " + e.data);
-    
     try {
-        let outermsg = JSON.parse(e.data);
-        let msg = outermsg.value
-        //console.log("msg  received" + msg);
-        console.log("value: " + msg.value.substring(0, 30));
-        console.log(">> msgtype: " + msg.type);
-        console.log("is rep: ", msg.type === "REPSTATE");
+        let msg = JSON.parse(e.data);
+        console.log("msg " + msg);
+        console.log("value: " + msg.value);
+        console.log("type: " + msg.type);
 
-        switch(msg.type){
-            case "chat":
-                document.getElementById("chatlog").textContent += "\n" + msg.value;
-                break;
-            case "uuid":
-                document.getElementById("uuid").textContent = msg.value;
-                break;
-            case "name":
-                let v = msg.value;
-                let n = v.split("|")[0]
-                document.getElementById("username").textContent = n;
-                document.getElementById("otherlog").textContent += "\n" + msg.value;
-                break;
-            case "REPSTATE":
-                console.log(">> REPSTATE")
-                console.log(">> " + msg.value)
-                //console.log(">>>> message hist " + msg.value);
-                //console.log(">>>> first message " + msg.value.state.MsgHistory[0].value);
-                //console.log(">>>> first message " + msg.value.state);
-                appendHistory(msg.value);                        
-                break
-            default:
-                console.log("?? unkown message ", msg.type)
-        }
-
-        
+        if (msg.type == "chat") {
+            document.getElementById("log").textContent += "\n" + msg.value;
+        } else if (msg.type == "uuid") {
+            document.getElementById("uuid").textContent = msg.value;
+        } else if (msg.type == "name") {
+			let v = msg.value;
+            let n = v.split("|")[0]
+            // document.getElementById("log").textContent += "\n" + n;
 			
+            document.getElementById("log").textContent += "\n" + msg.value;
+			document.getElementById("username").textContent = n;
+        }
         
     } catch {
 
@@ -156,17 +115,15 @@ socket.onerror = error => {
 };
 
 function sendChat() {
-
-    console.log("sendChat");
     
     //conn.send(document.getElementById("input").value);
     let inputValue = document.getElementById("input").value;
-    // let jmsg = JSON.stringify({
-    //   type: "chat",
-    //   value: inputValue
-    // });
-
-    socketSendMsg({type: "chat", value: inputValue});
+    let jmsg = JSON.stringify({
+      type: "chat",
+      value: inputValue
+    });
+    console.log("jmsg " + jmsg);
+    socket.send(jmsg);
   
     // let pmsg = JSON.stringify({
     //   type: "ping", 
@@ -177,24 +134,22 @@ function sendChat() {
     //conn.send("ping");
   }
 
-function registerName() {
-    console.log("registerName");
+  function registerName() {
+    
     //conn.send(document.getElementById("input").value);
     let inputValue = document.getElementById("registerInput").value;
     console.log("inputValue " + inputValue);
-    // let jmsg = JSON.stringify({
-    //   type: "name",
-    //   value: inputValue
-    // });
-    socketSendMsg({type: "name", value: inputValue});
+    let jmsg = JSON.stringify({
+      type: "name",
+      value: inputValue
+    });
+    console.log("jmsg " + jmsg);
+    socket.send(jmsg);
 
-    
-
-	//document.getElementById("username").textContent = "test"
+	document.getElementById("username").textContent = "test"
   
-}
   
-document.getElementById("sendchat_button").addEventListener("click", sendChat);
-document.getElementById("registerButton").addEventListener("click", registerName);
-
+  }
   
+  document.getElementById("sendchat_button").addEventListener("click", sendChat);
+  document.getElementById("registerButton").addEventListener("click", registerName);
