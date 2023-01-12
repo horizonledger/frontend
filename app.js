@@ -4,6 +4,7 @@ const port = 8080
 
 app.set('view engine', 'ejs');
 
+app.use('/static', express.static('static'))
 
 // use res.render to load up an ejs view file
 
