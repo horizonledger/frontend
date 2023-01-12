@@ -13,8 +13,12 @@ app.get('/', function(req, res) {
   res.render('pages/index');
 });
 
-app.get('/about', function(req, res) {
-  res.render('pages/about');
+app.get('/wallet', function(req, res) {
+  res.render('pages/wallet');
+});
+
+app.get('/settings', function(req, res) {
+  res.render('pages/settings');
 });
 
 // app.use('/', express.static('static'))
