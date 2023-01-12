@@ -71,8 +71,8 @@ let endpoint = "ws://127.0.0.1:8000/ws";
 let socket = new WebSocket(endpoint);
 console.log("Attempting Connection...");
 
-
-document.getElementById("network").textContent = endpoint;
+//TODO
+//document.getElementById("network").textContent = endpoint;
 
 socket.onopen = () => {
     console.log("Successfully Connected");
@@ -151,5 +151,5 @@ function sendChat() {
   
   }
   
-  document.getElementById("btn").addEventListener("click", sendChat);
+  document.getElementById("sendchat_button").addEventListener("click", sendChat);
   document.getElementById("registerButton").addEventListener("click", registerName);
