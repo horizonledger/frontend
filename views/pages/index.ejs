@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>This is great</h1>
+    <p>Welcome to templating using EJS</p>
+  </div>
+
+<!-- SIDEBAR -->
+<section id="sidebar">
+  <a href="#" class="brand">
+    <i class='bx bx-radio-circle'></i>
+    <span class="text">Horizon</span>
+  </a>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        
+        <i class='bx bxs-message-dots' ></i>
+        <span class="text">Chat</span>
+      </a>
+    </li>
+    <li>
+      <a href="/wallet.html">
+        <i class='bx bxs-wallet' ></i>
+        <span class="text">Wallet</span>
+      </a>
+    </li>
+    
+    <li>
+      <a href="#">
+        <i class='bx bxs-user' ></i>
+        <span class="text">Profile</span>
+      </a>
+    </li>
+    <li>
+      <!--<a href="#">
+        <i class='bx bxs-group' ></i>
+        <span class="text">Team</span>
+      </a>-->
+    </li>
+  </ul>
+  
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <!--<li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>-->
+  </ul>
+</section>
+<!-- SIDEBAR -->
+
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i class='bx bx-menu' ></i>
+    <!-- <a href="#" class="nav-link">Friends Search</a> -->
+    <form action="#">
+      <!-- <div class="form-input">
+        <input type="search" placeholder="Search...">
+        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+      </div> -->
+    </form>
+    <input type="checkbox" id="switch-mode" hidden>
+    <label for="switch-mode" class="switch-mode"></label>
+    <a href="#" class="notification">
+      <i class='bx bxs-bell'></i>
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- MAIN -->
+  <main>
+
+    <ul class="box-info">
+    
+      <li>
+        <i class='bx bxs-group' ></i>
+        <span class="text">
+          <h3 id="username">@horizonledger</h3>
+          <p id="">Username</p>
+        </span>
+      </li>
+      
+    </ul>
+
+    
+    <!-- <div class="head-title">
+      <div class="left">
+        <h1>Wallet</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li><i class='bx bx-chevron-right' ></i></li>
+          <li>
+            <a class="active" href="#">Home</a>
+          </li>
+        </ul>
+      </div>
+      <a href="#" class="btn-download">
+        <i class='bx bxs-wallet' ></i>
+        <span class="text">Connect</span>
+      </a>
+    </div> -->
+
+    
+
+    <div>					
+              <div class="card chat-box" id="mychatbox">
+                <div class="card-header">
+                  
+                </div>
+                <div class="card-body chat-content">
+                </div>
+                <div class="card-footer chat-form">
+
+                <div class="chat-wrapper-register">
+                  <input class="register-box" type="text" id="registerInput" placeholder="Register your name here">
+                  <button class="chat-btn" id="registerButton">Register Name</button>
+                </div>
+                <div class="chat-wrapper">
+                  <div class="header-chat">Horizon Chat</div>
+                  <pre id="chatlog"></pre>
+
+                  <div class="type-button">
+                  <input class="sent-box" id="input" type="text" autocomplete="off" placeholder="Type something"/>
+                  <button type="submit" class="chat-btn" id="sendchat_button">Send</button>
+                  </div>
+                  </div>
+                </div>
+
+        <h2>info log</h2>
+        <pre id="otherlog"></pre>
+        <br><br><br>
+
+        <div>network:
+        <pre id="network"></pre>
+        </div>
+        </div>
+
+    <ul class="box-info">
+          
+    <li>
+      <i class='bx bxs-dollar-circle' ></i>
+      <span class="text">
+        <h3>Public Key</h3>
+        <p>rWYPTp6QMk6LuEx3aoRBSqBc...</p>
+      </span>
+    </li>
+    <li>
+      <i class='bx bxs-calendar-check' ></i>
+      <span class="text">
+        <h3>ID</h3>
+        <p id="uuid"></p>
+      </span>
+    </li>
+  </ul>
+
+
+    </div>
+
+    
+
+  </main>
+  <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+  
+
+
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

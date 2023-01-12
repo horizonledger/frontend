@@ -1,19 +1,20 @@
 const express = require('express')
 const app = express()
 const port = 8080
-var eta = require("eta")
 
-app.engine("eta", eta.renderFile)
+app.set('view engine', 'ejs');
 
-app.set("view engine", "eta")
 
-app.set("views", "./views")
+// use res.render to load up an ejs view file
 
-app.get("/", function (req, res) {
-  res.render("template", {
-    favorite: "Eta"
-  })
-})
+// index page
+app.get('/', function(req, res) {
+  res.render('pages/index');
+});
+
+app.get('/about', function(req, res) {
+  res.render('pages/about');
+});
 
 // app.use('/', express.static('static'))
 
