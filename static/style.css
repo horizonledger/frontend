@@ -328,21 +328,27 @@ input {
 	font-size: 20px;
 }
 
+.bx {
+	margin: 0 10px 0 0;
+}
+
 .chat-btn {
 	background-color: var(--blue);
 	border: none;
-	padding: 8px 25px;
+	padding:10px 25px;
 	border-radius: 40px;
 	font-size: 14px;
 	color: var(--light);
 	cursor: pointer;
 	margin: 5px;
+	display: flex;
+	height: 40px;
 }
 
 .chat-btn:hover {
 	background-color: var(--blue);
 	border: none;
-	padding: 8px 25px;
+	padding: 10px 25px;
 	border-radius: 40px;
 	font-size: 14px;
 	color: var(--light);
@@ -357,16 +363,17 @@ input {
 	height: 350px;
 	overflow: hidden;
 	overflow-y: scroll;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .header-chat {
 	width: 500px;
-	background-color: var(--dark);
+	background-color: var(--grey);
 	text-align: center;
-	border-radius: 0;
+	border-radius: 10px 10px 0 0;
 	font-size: 26px;
 	font-weight: 500;
-	color: var(--light);
+	color: var(--dark);
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -392,12 +399,18 @@ input {
 
 .type-button {
 	display: flex;
-	padding: 10px;
-	background-color: var(--dark);
+	justify-content: space-around;
+	align-items: center;
+	width: 500px;
+	background-color: var(--grey);
+	border-radius: 0 0 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .sent-box {
-	width: 390px;
+	width: 370px;
+	height: 40px;
+	margin: 0 10px;
 }
 
 /* MAIN */
