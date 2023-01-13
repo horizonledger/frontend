@@ -4,24 +4,36 @@
     <i class='bx bx-radio-circle'></i>
     <span class="text">Horizon</span>
   </a>
+
+
   <ul class="side-menu top">
-   
-    <li>
+    <% if (active == "wallet") { %>
+      <li class="active">
+      <%} else { %>
+        <li>
+      <% } %>
       <a href="/">
         <i class='bx bxs-wallet' ></i>
         <span class="text">Wallet</span>
       </a>
     </li>
 
-    <li class="active">
-      <a href="/chat">
-        
+    <% if (active == "chat") { %>
+      <li class="active">
+      <%} else { %>
+        <li>
+      <% } %>
+      <a href="/chat">        
         <i class='bx bxs-message-dots' ></i>
         <span class="text">Chat</span>
       </a>
     </li>
 
-    <li class="active">
+    <% if (active == "gov") { %>
+      <li class="active">
+      <%} else { %>
+        <li>
+      <% } %>
       <a href="/gov">
         
         <i class='bx bx-unite' ></i>
@@ -30,7 +42,11 @@
     </li>
 
 
-    <li class="active">
+    <% if (active == "nodes") { %>
+      <li class="active">
+      <%} else { %>
+        <li>
+      <% } %>
       <a href="/nodes">
         
         <i class='bx bx-cube-alt' ></i>
@@ -38,9 +54,17 @@
       </a>
     </li>
 
+    <% if (active == "settings") { %>
+      <li class="active">
+      <%} else { %>
+        <li>
+      <% } %>
+      <a href="/settings">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
 
-    
-    
     <!-- <li>
       <a href="#">
         <i class='bx bxs-user' ></i>
@@ -56,12 +80,7 @@
   </ul>
   
   <ul class="side-menu">
-    <li>
-      <a href="/settings">
-        <i class='bx bxs-cog' ></i>
-        <span class="text">Settings</span>
-      </a>
-    </li>
+   
     <!--<li>
       <a href="#" class="logout">
         <i class='bx bxs-log-out-circle' ></i>

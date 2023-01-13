@@ -9,24 +9,24 @@ app.use('/static', express.static('static'))
 // use res.render to load up an ejs view file
 
 // index page
-app.get('/', function(req, res) {
-  res.render('pages/wallet');
+app.get('/', function(req, res) {  
+  res.render('pages/wallet',  { active : 'wallet' });
 });
 
 app.get('/chat', function(req, res) {
-  res.render('pages/chat');
+  res.render('pages/chat', { active : 'chat' });
 });
 
 app.get('/nodes', function(req, res) {
-  res.render('pages/nodes');
+  res.render('pages/nodes', { active : 'nodes' });
 });
 
 app.get('/gov', function(req, res) {
-  res.render('pages/gov');
+  res.render('pages/gov', { active : 'gov' });
 });
 
 app.get('/settings', function(req, res) {
-  res.render('pages/settings');
+  res.render('pages/settings', { active : 'settings' });
 });
 
 // app.use('/', express.static('static'))
